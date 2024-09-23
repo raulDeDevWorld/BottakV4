@@ -42,7 +42,7 @@ export default function Home() {
     }
     function redirect() {
         setDestinatario({ operacion: pathname })
-        router.push('/Register/Destinatario')
+        router.push('/Register/Wallets')
     }
     function manage(i, data) {
         setItem(i)

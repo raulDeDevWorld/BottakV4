@@ -93,7 +93,7 @@ export default function Home() {
     }
 
     user && userDB
-      ? router.push('/ConfirmCambio?operacion=Cambio')
+      ? router.push('/Wallets')
       : router.push('/Register/Destinatario?operacion=Cambio')
   }
   useEffect(() => {
@@ -142,11 +142,8 @@ export default function Home() {
             <span className='text-white text-[14px] font-light'>Tasa de cambio </span>
             <span className='text-white text-[14px] font-light'>
               {divisas && divisas !== undefined && divisas[select2] && divisas[select2] !== undefined && select2 && select2 !== undefined && (divisas[select2].venta / divisas[select2].venta).toFixed(2)} {select2}
-
               =
-
               {divisas && divisas !== undefined && divisas[select] && divisas[select] !== undefined && select && select !== undefined && (divisas[select].compra / divisas[select2].compra).toFixed(2)} {select}
-
             </span>
           </div>
           <div className='grid grid-cols-2 gap-[15px]'>
