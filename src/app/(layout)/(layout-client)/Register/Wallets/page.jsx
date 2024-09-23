@@ -26,6 +26,62 @@ function Home() {
     const searchParams = useSearchParams()
     const pathname = searchParams.get('operacion')
 
+
+
+
+
+
+
+
+
+
+    const [postImage, setPostImage] = useState(undefined)
+    const [pagosQR, setPagosQR] = useState(undefined)
+    const [urlPostImage, setUrlPostImage] = useState(undefined)
+    const [payDB, setPayDB] = useState(undefined)
+    function onChangeHandler(e) {
+        setDestinatario({ ...destinatario, [e.target.name]: e.target.value })
+    }
+    // const handlerCountrySelect = (pais, cca3) => {
+    //     setDestinatario({ ...destinatario, ['pais cuenta bancaria']: pais, cca3 })
+    // }
+
+    const handlerBankSelect2 = (i) => {
+        setDestinatario({ ...destinatario, ['banco remitente']: i })
+    }
+
+    function manageInputIMG(e) {
+        const file = e.target.files[0]
+        setPostImage(file)
+        setUrlPostImage(URL.createObjectURL(file))
+    }
+
+    const handlerIsSelect5 = () => {
+        setIsSelect5(!isSelect5)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function onChangeHandler(e) {
         setDestinatario({ ...destinatario, [e.target.name]: e.target.value })
     }
@@ -107,17 +163,21 @@ function Home() {
                 <div className=' space-y-5'>
                     <Label htmlFor="">Direccion de billtera o QR de recepcion de crypto</Label>
                     <Input type="text" name="cuenta destinatario" onChange={onChangeHandler} required />
-                </div>
-              <div className=' space-y-5'>
+
+   <div className=' space-y-5'>
                         {/* <Label htmlFor="">Baucher de transferencia</Label> */}
                         <div className="w-full flex justify-center">
                             <label htmlFor="file" className="flex justify-center items-center w-[300px] min-h-[300px] bg-white border border-gray-300 border-dotted text-center text-gray-900 text-[14px] focus:ring-blue-500 focus:border-blue-500 rounded-[10px]" >
                                 {urlPostImage !== undefined ? <img className="flex justify-center items-center w-[300px] min-h-[300px] bg-white border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 rounded-[10px]" style={{ objectPosition: 'center' }} src={urlPostImage} alt="" />
-                                    : 'Subir baucher'}
+                                    : 'Subir QR de recepcion de cambio'}
                             </label>
                             <input className="hidden" id='file' name='name' onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" type="file" required />
                         </div>
                     </div>
+
+
+                </div>
+           
                 {destinatario !== undefined && destinatario.pais !== undefined && countries[cca3].countries !== undefined && cca3 && <>
                     <div className='lg:hidden'>
                         <h3 className='text-center pb-3  text-green-400 lg:hidden'>Informacion Bancaria</h3>
